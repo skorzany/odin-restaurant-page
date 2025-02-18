@@ -1,4 +1,5 @@
 import "./styles.css";
-import {greeting} from "./greeting.js";
+import buildHtml from "./setup.js";
 
-console.log(greeting);
+
+buildHtml();
