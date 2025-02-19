@@ -1,8 +1,6 @@
 import restaurantImage from "./picture.jpg";
 
-export default function () {
-    const container = document.body.querySelector("#content");
-
+export default function (container) {
     const image = document.createElement("img");
     image.src = restaurantImage;
     container.appendChild(image);
