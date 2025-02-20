@@ -3,10 +3,11 @@ import restaurantImage from "./picture.jpg";
 export default function (container) {
     const image = document.createElement("img");
     image.src = restaurantImage;
+    image.alt = "A laid table";
     container.appendChild(image);
 
     const headline = document.createElement("h1");
-    headline.textContent = "Restaurant headline";
+    headline.textContent = "Fancy-Restaurant-Name";
     container.appendChild(headline);
 
     const paragraph = document.createElement("p");

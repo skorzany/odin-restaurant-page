@@ -5,25 +5,36 @@ import generateMenu from "./menu.js";
 import generateContact from "./contact.js";
 
 const content = document.body.querySelector("#content");
-const [home, menu, contact] = document.body.querySelectorAll("header nav button")
+const buttons = document.body.querySelectorAll("header nav button");
+const [home, menu, contact] = [...buttons];
 
 function clearContent(container) {
     container.replaceChildren();
 }
 
+function clearButtons() {
+    for(let btn of buttons) btn.classList.remove("active");
+}
+
 generateHome(content);
 
-home.addEventListener("click", () => {
+home.addEventListener("click", (e) => {
+    clearButtons();
+    e.target.classList.add("active");
     clearContent(content);
     generateHome(content);
 });
 
-menu.addEventListener("click", () => {
+menu.addEventListener("click", (e) => {
+    clearButtons();
+    e.target.classList.add("active");
     clearContent(content);
     generateMenu(content);
 });
 
-contact.addEventListener("click", () => {
+contact.addEventListener("click", (e) => {
+    clearButtons();
+    e.target.classList.add("active");
     clearContent(content);
     generateContact(content);
 });

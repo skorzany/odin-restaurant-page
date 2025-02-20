@@ -1,3 +1,146 @@
-body {
-    background-color: rebeccapurple;
+:root {
+    font-size: 16px;
+    --header-color: #101419;
+    --main-color: #984447;
+    --content-color: #476C9B;
+    --button-color: #ADD9F4;
+    --card-color: #468C98;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--main-color);
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+header {
+    height: min-content;
+    width: 100vw;
+    padding-top: 1rem;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--header-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+button {
+    border: none;
+    border-radius: .25rem .25rem 0 0;
+    padding: .5rem 1rem .25rem;
+    background-color: var(--button-color);
+}
+
+button.active {
+    background-color: var(--content-color);
+}
+
+#content {
+    flex: 1;
+
+    min-width: min-content;
+    width: 70%;
+    background-color: var(--content-color);
+    text-align: center;
+    text-wrap: balance;
+    padding: 2rem 1rem 0;
+}
+
+img {
+    max-height: 450px;
+    object-fit: contain;
+    margin: 0 auto 3rem;
+}
+
+h1 {
+    margin: 0 auto 2rem;
+    padding: 0 2rem;
+    border-bottom: 1px solid black;
+    width: max-content;
+}
+
+
+/* ======== MENU TAB ELEMENTS ======== */
+.menu-container ul {
+    list-style-type: none;
+    padding: 0 3rem;
+}
+
+.menu-container li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted black;
+    margin-bottom: 1rem;
+}
+/* ======== END OF MENU TAB ELEMENTS ======== */
+
+
+/* ======== CONTACT TAB ELEMENTS ======== */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+
+    margin: 5rem auto 0;
+}
+
+.card {
+    background-color: var(--card-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: max-content;
+}
+
+.card h2, .card h3 {
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    padding: 0;
+}
+
+.card>ul>li {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: .5rem;
+}
+
+.hrs-container {
+    margin-left: auto;
+    width: 10rem;
+    display: flex;
+    justify-content: end;
+}
+
+.hrs-open, .hrs-close {
+    width: 45%;
+}
+
+.location {
+    flex: 1;
+}
+
+.hours {
+    padding: 1rem 2rem;
+    flex: 2;
+}
+
+.staff {
+    flex: 1;
+}
+/* ======== END OF CONTACT TAB ELEMENTS ======== */
