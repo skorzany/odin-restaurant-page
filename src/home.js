@@ -1,8 +1,8 @@
-import restaurantImage from "./picture.jpg";
+import {homeImage} from "./data";
 
 export default function (container) {
     const image = document.createElement("img");
-    image.src = restaurantImage;
+    image.src = homeImage;
     image.alt = "A laid table";
     container.appendChild(image);
 

@@ -1,4 +1,4 @@
-import menuImage from "./picture2.jpg";
+import {menuImage, dishes} from "./data";
 
 export default function(container) {
     const image = document.createElement("img");
@@ -12,23 +12,16 @@ export default function(container) {
 
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
-    const menu = document.createElement("ul");
-    const dishes = [
-        {name: "Pizza", price: 50,},
-        {name: "Pasta", price: 75,},
-        {name: "Bread", price: 15,},
-        {name: "Wine", price: 100,},
-    ]
+    let menu = "<ul>";
     for(let obj of dishes) {
-        const dishBox = document.createElement("li");
-        const nameBox = document.createElement("span");
-        nameBox.textContent = obj.name;
-        const priceBox = document.createElement("span");
-        priceBox.textContent = `${obj.price} PLN`;
-        dishBox.appendChild(nameBox);
-        dishBox.appendChild(priceBox);
-        menu.appendChild(dishBox);
+        const item = `
+            <li>
+                <span>${obj.name}</span>
+                <span>${obj.price} PLN</span>
+            </li>
+        `;
+        menu += item;
     }
-    menuContainer.appendChild(menu);
+    menuContainer.innerHTML = menu + "</ul>";
     container.appendChild(menuContainer);
 }

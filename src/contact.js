@@ -1,3 +1,5 @@
+import {hours} from "./data";
+
 export default function(container) {
     const headline = document.createElement("h1");
     headline.textContent = "ABOUT US";
@@ -10,57 +12,44 @@ export default function(container) {
     // Location card
     const locationCard = document.createElement("div");
     locationCard.classList.add("card", "location");
-    const locationHeadline = document.createElement("h3");
-    locationHeadline.textContent = "LOCATION";
-    const locationDetails = document.createElement("p");
-    locationDetails.innerHTML = "123 Food St.<br/>Real City, XY 123456";
-    locationCard.appendChild(locationHeadline);
-    locationCard.appendChild(locationDetails);
+    locationCard.innerHTML = `
+        <h3>LOCATION</h3>
+        <p>123 Food St.<br/>Real City, XY 123456</p>
+    `;
     cardContainer.appendChild(locationCard);
 
     // Hours card
     const hoursCard = document.createElement("div");
     hoursCard.classList.add("card", "hours");
-    const hoursHeadline = document.createElement("h2");
-    hoursHeadline.textContent = "OPEN HOURS";
-    hoursCard.appendChild(hoursHeadline);
-    const hoursDetails = document.createElement("ul");
-    const details = [
-        {day: "Monday - Thursday", opens: "10AM", closes: "10PM",},
-        {day: "Friday", opens: "10AM", closes: "2AM",},
-        {day: "Saturday - Sunday", opens: "8AM", closes: "10PM",},
-    ];
-    for(let obj of details) {
-        const item = document.createElement("li");
-        const days = document.createElement("span");
-        days.textContent = obj.day;
-        days.classList.add("days");
-        item.appendChild(days);
-        const hrsContainer = document.createElement("div");
-        hrsContainer.classList.add("hrs-container");
-        item.appendChild(hrsContainer);
-        const open = document.createElement("span");
-        open.textContent = obj.opens;
-        open.classList.add("hrs-open");
-        const separator = document.createElement("span");
-        separator.textContent = "-";
-        const close = document.createElement("span");
-        close.textContent = obj.closes;
-        close.classList.add("hrs-close");
-        for(let span of [open, separator, close]) hrsContainer.appendChild(span);
-        hoursDetails.appendChild(item);
+    let cardHtml = `
+        <h2>OPEN HOURS</h2>
+        <ul>
+    `;
+    for(let obj of hours) {
+        const item = `
+            <li>
+                <span class="days">${obj.day}</span>
+                <div class="hrs-container">
+                    <span class="hrs-open">${obj.opens}</span>
+                    -
+                    <span class="hrs-close">${obj.closes}</span>
+                </div>
+            </li>
+        `;
+        cardHtml += item;
     }
-    hoursCard.appendChild(hoursDetails);
+    hoursCard.innerHTML = cardHtml + "</ul>";
     cardContainer.appendChild(hoursCard);
 
     // Staff card
     const staffCard = document.createElement("div");
     staffCard.classList.add("card", "staff");
-    const staffHeadline = document.createElement("h3");
-    staffHeadline.textContent = "OUR STAFF";
-    const staffInfo = document.createElement("p");
-    staffInfo.innerHTML = "Chef: Bob Bobbins<br/>Mobile: 123-456-789<br/>Email: bobby@restaurant.com<br/>";
-    staffCard.appendChild(staffHeadline);
-    staffCard.appendChild(staffInfo);
+    staffCard.innerHTML = `
+        <h3>OUR STAFF</h3>
+        <p>Chef: Bob Bobbins<br/>
+            Mobile: 123-456-789<br/>
+            Email: bobby@restaurant.com
+        </p>
+    `;
     cardContainer.appendChild(staffCard);
 }

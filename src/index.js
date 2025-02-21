@@ -4,10 +4,6 @@ import generateHome from "./home.js";
 import generateMenu from "./menu.js";
 import generateContact from "./contact.js";
 
-const content = document.body.querySelector("#content");
-const buttons = document.body.querySelectorAll("header nav button");
-const [home, menu, contact] = [...buttons];
-
 function clearContent(container) {
     container.replaceChildren();
 }
@@ -15,7 +11,13 @@ function clearContent(container) {
 function clearButtons() {
     for(let btn of buttons) btn.classList.remove("active");
 }
+// ======== END OF IMPORTS & UTILS ========
 
+
+const content = document.body.querySelector("#content");
+const buttons = document.body.querySelectorAll("header nav button");
+const [home, menu, contact] = [...buttons];
+home.classList.add("active");
 generateHome(content);
 
 home.addEventListener("click", (e) => {
