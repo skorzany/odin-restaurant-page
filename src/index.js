@@ -15,28 +15,19 @@ function clearButtons() {
 
 
 const content = document.body.querySelector("#content");
-const buttons = document.body.querySelectorAll("header nav button");
-const [home, menu, contact] = [...buttons];
-home.classList.add("active");
+const buttons = document.body.querySelectorAll("button");
+buttons[0].classList.add("active");
 generateHome(content);
 
-home.addEventListener("click", (e) => {
-    clearButtons();
-    e.target.classList.add("active");
-    clearContent(content);
-    generateHome(content);
-});
-
-menu.addEventListener("click", (e) => {
-    clearButtons();
-    e.target.classList.add("active");
-    clearContent(content);
-    generateMenu(content);
-});
-
-contact.addEventListener("click", (e) => {
-    clearButtons();
-    e.target.classList.add("active");
-    clearContent(content);
-    generateContact(content);
-});
+for(const [idx, btn] of [...buttons.entries()]) {
+    btn.addEventListener("click", () => {
+        clearButtons();
+        btn.classList.add("active");
+        clearContent(content);
+        switch(idx) {
+            case 0: return generateHome(content);
+            case 1: return generateMenu(content);
+            case 2: return generateContact(content);
+        };
+    });
+}
