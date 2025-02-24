@@ -1,4 +1,4 @@
-import {menuImage, dishes} from "./data";
+import {menuImage, dishes} from "./data.js";
 
 export default function(container) {
     const image = document.createElement("img");

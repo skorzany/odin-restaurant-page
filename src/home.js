@@ -1,4 +1,4 @@
-import {homeImage} from "./data";
+import {homeImage} from "./data.js";
 
 export default function (container) {
     const image = document.createElement("img");

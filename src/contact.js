@@ -1,4 +1,4 @@
-import {hours} from "./data";
+import {hours} from "./data.js";
 
 export default function(container) {
     const headline = document.createElement("h1");
